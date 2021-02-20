@@ -90,14 +90,24 @@ window.addEventListener("load", () => {
         isDrawing = false;
         _new = true;
     })
-
     canvas.addEventListener('mousemove', e=>{
         draw(e); 
     })
 
-    ctx.beginPath();
-    ctx.moveTo(100,100);
-    ctx.lineTo(200,100);
-    ctx.stroke();
+    canvas.addEventListener("touchmove", (e) =>{
+        draw(e);
+    })
+
+    canvas.addEventListener("touchstart", (e) =>{
+        isDrawing = true;
+    })
+    canvas.addEventListener("touchend", (e) =>{
+        isDrawing = false;
+        _new = true;
+    })
+    canvas.addEventListener("touchcancel", (e) => {
+        isDrawing = false;
+        _new = true;
+    })
 })
 
